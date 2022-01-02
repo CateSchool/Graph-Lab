@@ -7,7 +7,8 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(cate.width, cate.height);
+    const cnv = createCanvas(cate.width, cate.height);
+    cnv.parent("canvasDiv");
     initGraph();
 }
 
@@ -19,24 +20,20 @@ function draw() {
     graph.displayNodes();
     graph.displayEdges();
     graph.lightPath(shortPath);
-
-    stroke(0);
-    fill(255, 255, 0);
-    text(mouseX + ', ' + mouseY, mouseX, mouseY);
 }
 
 function getTravel() {
-    console.log("------");
     let start = document.getElementById("start");
     let startDorm = dorms[+start.value];
     let end = document.getElementById("end");
     let endDorm = dorms[+end.value];
-    // console.log("Start: ", startDorm.name);
-    // console.log("End: ", endDorm.name);
     shortPath = graph.findShortestPath(graph.nodes.get(startDorm), graph.nodes.get(endDorm));
     shortPath.push(endDorm);
-    // console.log("Total Distance: " + graph.nodes.get(endDorm).distance);
-    document.getElementById("distance").innerHTML(graph.nodes.get(endDorm).distance);
+    let distance = round(graph.nodes.get(endDorm).distance);
+    document.getElementById("distance").innerHTML = distance;
+    const walkMetersPerMinute = 94; // = 3.5mph (average)
+    let minutesWalk = round(distance / walkMetersPerMinute, 1);
+    document.getElementById("time").innerHTML = minutesWalk;
 }
 
 function initGraph() {
@@ -56,7 +53,6 @@ function initGraph() {
     graph.addEdge(points[6], dorms[4]);
     graph.addEdge(points[7], points[8]);
     graph.addEdge(points[8], dorms[5]);
-    // graph.addEdge(points[9], points[10]);
     graph.addEdge(points[9], points[14]);
     graph.addEdge(points[9], dorms[3]);
     graph.addEdge(points[9], dorms[4]);

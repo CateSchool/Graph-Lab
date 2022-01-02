@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <style>
@@ -12,44 +13,62 @@
         canvas {
             display: block;
         }
+
+        .container {
+            padding: 30px;
+        }
     </style>
     <meta charset="utf-8">
 </head>
 
 <body>
-    <h1>Cate Maps App</h1>
-    <div id="instructions">
-        <div>Distance: <span id="distance">0</span> meters</div>
-        <div>Time: <span id="time">0</span> seconds</div>
+    <div class="container">
+        <h1>Cate Maps App</h1>
+        
+        <label for="start">Start:</label>
+        <select name="start" id="start">
+            <option value="0">25H</option>
+            <option value="1">Bothin</option>
+            <option value="2">Pars</option>
+            <option value="3">HH/Lido</option>
+            <option value="4">SH</option>
+            <option value="5">Savage</option>
+            <option value="6">LH</option>
+            <option value="7">CHW</option>
+            <option value="8">CHE</option>
+        </select>
+
+        <label for="end">End:</label>
+        <select name="end" id="end">
+            <option value="0">25H</option>
+            <option value="1">Bothin</option>
+            <option value="2">Pars</option>
+            <option value="3">HH/Lido</option>
+            <option value="4">SH</option>
+            <option value="5">Savage</option>
+            <option value="6">LH</option>
+            <option value="7">CHW</option>
+            <option value="8">CHE</option>
+        </select>
+
+        <br />
+        <br />
+        <button onclick="getTravel()">submit</button>
+        <br />
+        <br />
+        <hr />
+        <br />
+        
+        <div id="instructions">
+            <div><strong>Distance</strong>: <span id="distance">0</span> meters</div>
+            <div><strong>Time</strong>: <span id="time">0</span> minutes</div>
+        </div>
+        <br />
+      <div id="canvasDiv"></div>
+      <hr />
+      <h4>Created by Jonathan Yoo</h4>
+       
     </div>
-    <label for="start">Start:</label>
-    <select name="start" id="start">
-        <option value="0">25H</option>
-        <option value="1">Bothin</option>
-        <option value="2">Pars</option>
-        <option value="3">HH/Lido</option>
-        <option value="4">SH</option>
-        <option value="5">Savage</option>
-        <option value="6">LH</option>
-        <option value="7">CHW</option>
-        <option value="8">CHE</option>
-    </select>
-
-    <label for="end">End:</label>
-    <select name="end" id="end">
-        <option value="0">25H</option>
-        <option value="1">Bothin</option>
-        <option value="2">Pars</option>
-        <option value="3">HH/Lido</option>
-        <option value="4">SH</option>
-        <option value="5">Savage</option>
-        <option value="6">LH</option>
-        <option value="7">CHW</option>
-        <option value="8">CHE</option>
-    </select>
-
-    <br><br>
-    <button onclick="getTravel()">submit</button>
 
     <script src="Node.js"></script>
     <script src="Graph.js"></script>
