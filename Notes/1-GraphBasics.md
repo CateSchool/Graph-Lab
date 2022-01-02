@@ -29,8 +29,6 @@ const graph = {
 }
 ```
 
-```
-
 ## Questions
 ```
 QUESTION 1. What type of graph should we use for our geolocation app? Directed? Undirected? Weighted or not? Explain.
