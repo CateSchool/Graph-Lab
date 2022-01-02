@@ -4,17 +4,24 @@ class Graph {
         this.notChecked = [];
     }
 
-    addEdge(source, destination) {  
+    ///////////////////////////////////////////////
+    // IMPLEMENT ME
+    dijkstrasShortestPath() {
+        
+    }
+    ///////////////////////////////////////////////
+
+    addEdge(source, destination) {
         const sourceNode = this.addVertex(source);
         const destinationNode = this.addVertex(destination);
 
-        sourceNode.addAdjacent(destinationNode); 
+        sourceNode.addAdjacent(destinationNode);
         destinationNode.addAdjacent(sourceNode);
 
         return [sourceNode, destinationNode];
     }
 
-    displayEdges() { 
+    displayEdges() {
         this.nodes.forEach(node => {
             for (const adj of node.getAdjacents()) {
                 stroke(130, 247, 255);
@@ -23,18 +30,18 @@ class Graph {
         });
     }
 
-    displayNodes() { 
+    displayNodes() {
         this.nodes.forEach(node => {
             if (node.type === "dorm") {
-              fill(0, 255, 0);
-              ellipse(node.x, node.y, 10);
-              stroke(0);
-              text(node.name, node.x, node.y - 3);
+                fill(0, 255, 0);
+                ellipse(node.x, node.y, 10);
+                stroke(0);
+                text(node.name, node.x, node.y - 3);
             }
             else {
-              stroke(0);
-              fill(255, 255, 0);
-              ellipse(node.x, node.y, 10);
+                stroke(0);
+                fill(255, 255, 0);
+                ellipse(node.x, node.y, 10);
             }
         });
     }
@@ -70,20 +77,20 @@ class Graph {
 
         return [sourceNode, destinationNode];
     }
-    
+
     lightPath(path) {
         for (let i = 0; i < path.length - 1; i++) {
-            this.drawLine(path[i], path[i+1], true);
+            this.drawLine(path[i], path[i + 1], true);
         }
     }
-  
-    drawLine(p1, p2, displayDist=false) {
+
+    drawLine(p1, p2, displayDist = false) {
         stroke(255, 130, 226);
         line(p1.x, p1.y, p2.x, p2.y);
-        
-        if(displayDist) {
-            let avX = (p1.x + p2.x)/2;
-            let avY = (p1.y + p2.y)/2;
+
+        if (displayDist) {
+            let avX = (p1.x + p2.x) / 2;
+            let avY = (p1.y + p2.y) / 2;
             let d = round(getDistanceMeters(p1, p2)) + "m";
 
             stroke(0);
@@ -91,8 +98,5 @@ class Graph {
             text(d, avX, avY);
         }
     }
-    
-    nameYourMethod(inputs?) {
-        // Put your codde here :D
-    }
+
 }
