@@ -2,7 +2,7 @@
 
 We are going to build a simple app to tell students the walking time and distance between various locations on campus. We will use a **graph** data structure to model the relationships between destinations (or "nodes"). This data structure will make it possible to perform necessary distance / time calculations.
 
-[Here is a live demo](https://cateschool.github.io/Demo-Cate-Maps-Graph-App/) (developed by [Jonathan Yoo](https://github.com/JoYoo9442)) of the **Cate Maps App** that you are going to build. Try it out to see it in action.
+[Here is a live demo](https://cateschool.github.io/Demo-Cate-Maps-Graph-App/) (developed by Jonathan Yoo) of the **Cate Maps App** that you are going to build. Try it out to see it in action.
 
 ![map](Notes/assets/map.png)
 ## Instructions
