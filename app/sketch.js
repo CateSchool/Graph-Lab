@@ -23,17 +23,33 @@ function draw() {
 }
 
 function getTravel() {
-    let start = document.getElementById("start");
-    let startDorm = dorms[+start.value];
-    let end = document.getElementById("end");
-    let endDorm = dorms[+end.value];
-    shortPath = graph.findShortestPath(graph.nodes.get(startDorm), graph.nodes.get(endDorm));
-    shortPath.push(endDorm);
-    let distance = round(graph.nodes.get(endDorm).distance);
+   
+    let startNode = getStartNode();
+    let endNode = getEndNode();
+    
+    graph.setAllShortestPaths(startNode);
+    
+    setTimeDistanceHTML(endNode.distance);
+    shortestPath = endNode.getShortestPath();
+}
+
+function setTimeDistanceHTML(distance) {
     document.getElementById("distance").innerHTML = distance;
     const walkMetersPerMinute = 94; // = 3.5mph (average)
     let minutesWalk = round(distance / walkMetersPerMinute, 1);
     document.getElementById("time").innerHTML = minutesWalk;
+}
+
+function getStartNode() {
+    let start = document.getElementById("start");
+    let startDorm = dorms[+start.value];
+    return graph.nodes.get(startDorm);
+}
+
+function getEndNode() {
+    let end = document.getElementById("end");
+    let endDorm = dorms[+end.value];
+    return graph.nodes.get(endDorm);
 }
 
 function initGraph() {

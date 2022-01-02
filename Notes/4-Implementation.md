@@ -4,10 +4,25 @@ You will be implementing `setShortestPaths(startNode)` method in the `Graph.js` 
 * updates the `node.distance` with that node's distance to the start node
 * updates `node.pathTaken` (an array that stores the shortest route from start node through other nodes).
 
+In the `sketch.js` file, checkout the `getTravel()` function, which uses the newly calculated distances and paths to display the distance & directions from start to ened. 
 
-## Pseudocode
+```javascript
+// sketch.js
+function getTravel() {
+   
+    let startNode = getStartNode();
+    let endNode = getEndNode();
+    
+    graph.setAllShortestPaths(startNode);
+    
+    setTimeDistanceHTML(endNode.distance);
+    shortestPath = endNode.getShortestPath();
+}
+```
 
-1. Use a loop in `setShortestPaths()` to initialize every graph node's:
+## Pseudocode for setAllShortestPaths()
+
+1. Use a loop in `setAllShortestPaths()` to initialize every graph node's:
    1. `distance` property to Infinity and 
    2. `pathTaken` property to an empty array
 2. Initialize the distance of the startNode to 0
@@ -19,7 +34,8 @@ You will be implementing `setShortestPaths(startNode)` method in the `Graph.js` 
     * If the distance from startNode to `b`, plus the distance from `b` to `a`, is less than `a`'s stored distance, update `a`'s distance.
 
 ```javascript
-dijkstrasShortestPath(startNode, endNode) {
+// Graph.js
+setAllShortestPaths(startNode, endNode) {
     // set all nodes distance to infinity
     // set startNode distance to 0
     // add all nodes to unchecked array
