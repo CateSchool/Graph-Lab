@@ -19,6 +19,6 @@ Read over the following notes and answer the associated questions in a separate 
 Follow the steps outlined [here](Notes/4-Implementation.md) to implement Dijkstra's algorithm and complete the Cate Map App.
 #### III. Submitting Work
 When you are done, you should have:
-1. **Written answers** to questions, which you can submit via email to Ms. deBB. 
-2. **A working app**. Submit the code by pushing your forked repo to GitHub.
+1. Written answers to questions, which you can submit via email to Ms. deBB. 
+2. A working app. Submit the code by pushing your forked repo to GitHub.
 
