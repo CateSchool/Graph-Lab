@@ -15,10 +15,6 @@ A **weighted** graph keeps track of the distances (or weights) between nodes. He
 
 ![weighted graph](assets/weighted.jpeg)
 
-```
-QUESTION 1. What type of graph should we use for our geolocation app? Directed? Undirected? Weighted or not? Explain.
-```
-
 ### Adjacency List
 **Adjacency List** is one way to represent the graph data structure. Each node has a list of all the nodes connected to it (its **adjacent** nodes).
 
@@ -34,6 +30,11 @@ const graph = {
 ```
 
 ```
+
+## Questions
+```
+QUESTION 1. What type of graph should we use for our geolocation app? Directed? Undirected? Weighted or not? Explain.
+
 QUESTION 2. Is the above graph directed or undirected? How do you know?
 
 QUESTION 3. Draw an illustration of the graph above.
